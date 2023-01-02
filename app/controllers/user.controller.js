@@ -21,6 +21,22 @@ const UserController = {
     } catch (error) {
         return ResponseFormatter.failed(res, error.message)
     }
+  },
+
+  login: async (req, res) => {
+    try {
+        const checkUser = await UserRepository.findBy('email', req.body.email)
+        if (!checkUser.email) throw new Error('Email is not registered')
+
+        const checkPassword = bcrypt.compareSync(req.body.password, checkUser.password)
+        if (!checkPassword) throw new Error('Email or password is wrong')
+
+        const token = jwt.sign({ id: checkUser.id, email: checkUser.email }, envi.JWT_KEY, { expiresIn: parseInt(envi.JWT_EXPIRED) })
+
+        return ResponseFormatter.success(res, { token })
+    } catch (error) {
+        return ResponseFormatter.failed(res, error.message)
+    }
   }
 }
 
