@@ -11,6 +11,14 @@ const UserRepository = {
         }
     },
 
+    findById: async (id) => {
+        try {
+            return await User.findByPk(id)
+        } catch (error) {
+            return error
+        }
+    },
+
     findBy: async (field, value) => {
         try {
             const datas = await db.query(`SELECT * FROM users WHERE ${field}='${value}'`, { type: QueryTypes.SELECT })
