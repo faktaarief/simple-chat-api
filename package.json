@@ -1,0 +1,31 @@
+{
+  "name": "simple-chat-api",
+  "version": "1.0.0",
+  "description": "Simple Chat API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faktaarief/simple-chat-api.git"
+  },
+  "author": "Fakta Arief",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/faktaarief/simple-chat-api/issues"
+  },
+  "homepage": "https://github.com/faktaarief/simple-chat-api#readme",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validation": "^4.1.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0"
+  }
+}
