@@ -21,6 +21,10 @@ const envi = {
     DB_USER: process.env.DB_USER,
     DB_PASS: process.env.DB_PASS,
     DB_NAME: process.env.DB_NAME,
+
+    // JWT
+    JWT_KEY: process.env.JWT_KEY,
+    JWT_EXPIRED: process.env.JWT_EXPIRED,
 }
 
 export default envi
