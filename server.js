@@ -3,6 +3,9 @@ import express from 'express'
 import envi from './app/config/envi.js' 
 import { ValidationError } from 'express-validation'
 
+/** Initialize Database */
+import './app/config/database.js'
+
 const app = express()
 
 app.use(cors())
