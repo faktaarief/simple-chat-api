@@ -56,6 +56,7 @@ const ConversationController = {
         await MessageRepository.updateMessageToRead(conversationId, !isFromSender)
         
         results = {
+          conversation_id: conversationId,
           sender_id: senderName.id,
           sender_name: senderName.name,
           receiver_id: receiverName.id,

@@ -37,7 +37,14 @@ const MessageController = {
         isFromSender
       })
 
-      return ResponseFormatter.success(res, message)
+      const result = {
+        id: message.id,
+        conversation_id: message.conversationId,
+        message: message.message,
+        time: message.createdAt
+      }
+
+      return ResponseFormatter.success(res, result)
     } catch (error) {
       return ResponseFormatter.failed(res, error.message)
     }

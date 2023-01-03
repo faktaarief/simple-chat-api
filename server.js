@@ -37,3 +37,5 @@ app.listen(envi.PORT, envi.HOST, () => {
         console.error(error)
     }
 })
+
+export default app

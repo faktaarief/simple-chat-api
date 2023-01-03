@@ -32,6 +32,14 @@ const UserRepository = {
             return error
         }
     },
+
+    findAll: async () => {
+        try {
+            return await db.query(`SELECT id, name, email FROM users`, { type: QueryTypes.SELECT })
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 export default UserRepository

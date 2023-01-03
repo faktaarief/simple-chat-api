@@ -22,6 +22,7 @@ const DataMapper = {
         const unreadMessage = await MessageRepository.countUnreadMessage(conversationId, !isFromSender)
 
         resultArray.push({
+          conversation_id: conversationId,
           last_message: lastMessage.message,
           message_time: lastMessage.createdAt,
           sender_name: senderName.name,
@@ -44,7 +45,6 @@ const DataMapper = {
       for (let message of messages) {
         resultArray.push({
           id: message.id,
-          conversation_id: message.conversationId,
           message: message.message,
           is_read: message.isRead,
           is_from_sender: message.isFromSender,

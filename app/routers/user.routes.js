@@ -5,6 +5,7 @@ import userController from '../controllers/user.controller.js'
 const router = express.Router()
 
 router.group('/v1/users', (router) => {
+  router.get('/', userController.index)
   router.post('/register', userController.register)
   router.post('/login', userController.login)
 })

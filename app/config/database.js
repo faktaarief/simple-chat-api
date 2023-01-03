@@ -11,8 +11,10 @@ const db = new Sequelize(
         dialect: envi.DB_DIALECT,
         dialectOptions: {
             dateStrings: true,
+            typeCast: true,
             timezone: '+07:00'
-        }
+        },
+        timezone: '+07:00'
     }
 )
 
