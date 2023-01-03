@@ -34,6 +34,28 @@ const DataMapper = {
     } catch (error) {
       return error
     }
+  },
+
+  showConversation: async (conversationId) => {
+    try {
+      let resultArray = []
+      const messages = await MessageRepository.findAll(conversationId)
+      
+      for (let message of messages) {
+        resultArray.push({
+          id: message.id,
+          conversation_id: message.conversationId,
+          message: message.message,
+          is_read: message.isRead,
+          is_from_sender: message.isFromSender,
+          time: message.createdAt
+        })
+      }
+
+      return resultArray
+    } catch (error) {
+      return error
+    }
   }
 }
 

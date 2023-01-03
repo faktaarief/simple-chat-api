@@ -41,6 +41,17 @@ const MessageRepository = {
         }
     },
 
+    
+    findAll: async (conversationId) => {
+        try {
+            const result = await db.query(`SELECT * FROM messages WHERE conversationId = ${conversationId}`, { type: QueryTypes.SELECT })
+
+            return result
+        } catch (error) {
+            return error
+        }
+    },
+
     countUnreadMessage: async (conversationId, isFromSender) => {
         try {
             const result = await db.query(`
