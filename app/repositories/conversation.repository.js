@@ -11,6 +11,18 @@ const ConversationRepository = {
         }
     },
 
+    findMyConversation: async (userId) => {
+        try {
+            const result = await db.query(`SELECT * FROM conversations WHERE userIdSender = ${userId} OR
+            userIdReceiver = ${userId}            
+            `, { type: QueryTypes.SELECT })
+
+            return result
+        } catch (error) {
+            return error
+        }
+    },
+
     findConversation: async (fieldOne, fieldTwo, valueOne, valueTwo) => {
         try {
             const datas = await db.query(`

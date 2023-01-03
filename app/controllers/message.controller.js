@@ -26,6 +26,9 @@ const MessageController = {
       let isFromSender = false
       if (userIdSender === conversation.userIdSender) isFromSender = true
 
+      /** When sender or receiver reply this conversation, assume previous message is readed */
+      await MessageRepository.updateMessageToRead(conversation.id, !isFromSender)
+
       /** Insert Message */
       const message = await MessageRepository.create({
         conversationId: conversation.id,

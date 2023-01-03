@@ -12,6 +12,7 @@ import './app/models/index.js'
 /** List Router */
 import userRouter from './app/routers/user.routes.js'
 import messageRouter from './app/routers/message.routes.js'
+import conversationRouter from './app/routers/conversation.routes.js'
 
 const app = express()
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(userRouter)
 app.use(messageRouter)
+app.use(conversationRouter)
 
 app.use((err, req, res, next) => {
     if (err instanceof ValidationError) {
